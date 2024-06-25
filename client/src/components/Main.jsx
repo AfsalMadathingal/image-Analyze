@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Main = () => {
-  const [showResult, setShowResult] = useState(false);
+  const [showResult, setShowResult] = useState(true);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState([]);
   const [image, setImage] = useState(null);
@@ -101,11 +101,11 @@ const Main = () => {
           <div className="fixed   inset-0 flex items-center justify-center bg-gray-900/70 z-10">
             <div className="bg-white p-5 rounded-lg h-[400px] w-[500px] shadow-lg flex flex-col justify-between">
               <div className="flex flex-col items-center justify-center">
-              <h1 className="text-3xl font-bold text-center mb-1 "> Result </h1>
+              <h1 className="lg:text-3xl font-bold text-center mb-1 "> Result </h1>
               <div className="w-[60%] h-1 flex items-center justify-center bg-[#000000]"></div>
               </div>
            
-              <p className="text-center text-[25px] font-bold ">
+              <p className="text-center lg:text-[25px] font-bold ">
                 Expression : {result[2]}
                 <br />
                 Emotion : {result[0]}
