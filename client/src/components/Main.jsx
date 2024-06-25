@@ -77,14 +77,14 @@ const Main = () => {
         <div className="absolute inset-0 bg-black z-10 opacity-60"></div>
         <div className="absolute inset-0  bg-gradient-to-r flex from-[#0c0b14] to-[#016875] "></div>
         <div className="relative z-10 text-center bg-[#000000] p-5 rounded-xl  border-black mt-14 ">
-          <h1 className="text-3xl font-bold text-white">
+          <h1 className="lg:text-3xl font-bold text-white">
             🤖 I will tell your Expression by Analyze your face.
           </h1>
         </div>
 
         <div
           onClick={handleScan}
-          className="cursor-pointer hover:bg-slate-400 text-[20px] font-bold z-10 text-center bg-[#dfcb8a] p-5 rounded-xl border-4 border-black mt-5 flex items-center justify-center"
+          className="cursor-pointer hover:bg-slate-400 lg:text-[20px] font-bold z-10 text-center bg-[#dfcb8a] p-5 rounded-xl border-4 border-black mt-5 flex items-center justify-center"
         >
           <img className="w-[50px] mr-3" src={imageScan} alt="" />
           <p className="font-bold text-[30px]">Analyze your face</p>
@@ -116,7 +116,7 @@ const Main = () => {
               </p>
               <div 
               onClick={() => setShowResult(false)}
-              className="bg-[#8adf95] p-5 rounded-lg text-center cursor-pointer transition duration-300 ease-in-out   hover:bg-[#3f5364] font-bold shadow-lg">Try again</div>
+              className="bg-[#8adf95] p-5 rounded-lg text-center cursor-pointer transition duration-300 ease-in-out    hover:bg-[#3f5364] font-bold shadow-lg">Try again</div>
             </div>
            
           </div>
@@ -125,7 +125,7 @@ const Main = () => {
         {loading && (
           <div className="fixed   inset-0 flex  items-center justify-center bg-gray-900/90 z-10">
             <div className="fixed items-center flex-col z-10 flex  mt-5">
-              <h1 className="text-xl font-bold text-white mb-5">
+              <h1 className="lg:text-xl font-bold text-white mb-5">
                 Analyzing your face
               </h1>
               <ReactLoading
