@@ -20,8 +20,23 @@ const anthropic = new Anthropic({
 
 app.post('/scan', upload.single('image'), async (req, res) => {
   try {
-
-    console.log("scan started");
+   
+    console.log("scan started",req.body);
+    let { limit } = req.body;
+    if(limit=="null"){
+      limit = 1
+    }else if(limit=="1"){
+      limit = parseInt(limit)
+      limit = 2
+      console.log("limit from one", limit);
+    }else if(limit=="2"){
+      res.status(200).json({ success: false , message: "sorry the api is limited"});
+      return
+    }else{
+      res.status(200).json({ success: false , message: "sorry the api is limited"});
+      return
+    }
+  
     const imageBuffer = req.file.buffer.toString('base64');
 
 
@@ -51,12 +66,12 @@ app.post('/scan', upload.single('image'), async (req, res) => {
     });
 
     console.log(message.content);
-    // const result = await new Promise((resolve, reject) =>setTimeout(() => resolve("success"), 3000));
+    const result = await new Promise((resolve, reject) =>setTimeout(() => resolve("success"), 3000));
 
-    res.status(200).json({ message: "success" , result: message.content[0].text});
+    res.status(200).json({ success: true, message: "success" , result: message.content[0].text, limit: limit});
 
   } catch (error) {
-    res.status(500).json({ error: "server", errorMessage: error.message });
+    res.status(500).json({ success: false, error: "server", errorMessage: error.message });
   }
 });
 

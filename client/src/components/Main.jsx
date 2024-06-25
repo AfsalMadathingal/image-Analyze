@@ -2,7 +2,8 @@ import React, { useRef, useEffect, useState } from "react";
 import imageScan from "../assets/image.png";
 import ReactLoading from "react-loading";
 import html2canvas from "html2canvas";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Main = () => {
   const [showResult, setShowResult] = useState(false);
@@ -22,6 +23,7 @@ const Main = () => {
   
           const formData = new FormData();
           formData.append("image", blob, "screenshot.png");
+          formData.append("limit", localStorage.getItem("limit"));
 
           
           const server =  import.meta.env.VITE_SERVER
@@ -32,9 +34,16 @@ const Main = () => {
 
           const data = await result.json();
           console.log(data);
+          if(data.success==false){
+            setLoading(false)
+            toast.error(data.message);
+            return
+          }
+          localStorage.setItem("limit", data.limit);
           const  aiResult = data.result.split(",");
-          setLoading(false)
           setResult(aiResult);
+          console.log(aiResult);
+          setLoading(false)
           setShowResult(true);
             
         }, "image/png");
@@ -63,6 +72,7 @@ const Main = () => {
 
   return (
     <>
+    <ToastContainer />
       <div className="relative h-screen flex flex-col items-center  ">
         <div className="absolute inset-0 bg-black z-10 opacity-60"></div>
         <div className="absolute inset-0  bg-gradient-to-r flex from-[#0c0b14] to-[#016875] "></div>
