@@ -30,10 +30,7 @@ app.post('/scan', upload.single('image'), async (req, res) => {
       limit = 2
       console.log("limit from one", limit);
     }else if(limit=="2"){
-      res.status(200).json({ success: false , message: "sorry the api is limited"});
-      return
-    }else{
-      res.status(200).json({ success: false , message: "sorry the api is limited"});
+      res.status(200).json({ success: false , message: "it working right  ? Check My another projects "});
       return
     }
   
