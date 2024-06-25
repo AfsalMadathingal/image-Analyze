@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Main = () => {
-  const [showResult, setShowResult] = useState(false);
+  const [showResult, setShowResult] = useState(true);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState([]);
   const [image, setImage] = useState(null);
@@ -84,13 +84,13 @@ const Main = () => {
 
         <div
           onClick={handleScan}
-          className="cursor-pointer hover:bg-slate-400 lg:text-[20px] font-bold z-10 text-center bg-[#dfcb8a] p-5 rounded-xl border-4 border-black mt-5 flex items-center justify-center"
+          className="cursor-pointer hover:bg-slate-400 lg:text-[20px]  font-bold z-10 text-center bg-[#dfcb8a] xs:p-1 lg:p-5 rounded-xl border-4 border-black mt-5 flex items-center justify-center"
         >
           <img className="w-[50px] mr-3" src={imageScan} alt="" />
-          <p className="font-bold text-[30px]">Analyze your face</p>
+          <p className="font-bold text-[15px]">Click to  Analyze your face</p>
         </div>
 
-        <div className="image-area relative z-10 camera bg-[#f1f1ed] w-[499px] h-[380px] p-1 rounded-lg mt-[10px] border border-black">
+        <div className="image-area relative z-10 camera bg-[#f1f1ed] xs:w-[300px] lg:w-[499px] h-[380px] p-1 rounded-lg mt-[10px] border border-black">
           <video
             ref={videoRef}
             autoPlay
@@ -99,7 +99,7 @@ const Main = () => {
         </div>
         {showResult && (
           <div className="fixed   inset-0 flex items-center justify-center bg-gray-900/70 z-10">
-            <div className="bg-white p-5 rounded-lg h-[400px] w-[500px] shadow-lg flex flex-col justify-between">
+            <div className="bg-white p-5 rounded-lg h-[400px]  xs:w-[350px] lg:w-[500px] shadow-lg flex flex-col justify-between">
               <div className="flex flex-col items-center justify-center">
               <h1 className="lg:text-3xl font-bold text-center mb-1 "> Result </h1>
               <div className="w-[60%] h-1 flex items-center justify-center bg-[#000000]"></div>
