@@ -56,7 +56,7 @@ app.post('/scan', upload.single('image'), async (req, res) => {
             },
             {
               type: "text",
-              text: `feeling of this person nb : answer in one word like "happy" , "sad", "angry" dressing of this person nb : answer in one word like "red shirt " , expression of face in emoji nb : answer in one emoji like : "😒" ,"😊", surroundings of this person nb : answer in one sentence like : "your sitting in office" ,"you are sitting in home " , your answer should be like this emotion should have a single word, emoji should have single emoji , and surrounding should be under 30 char 4 of them seprated by coma   example - : happy , red shirt , 😊 , you are sitting in office `
+              text: `face expression of this person nb : answer in one word like "happy" , "sad", "angry" dressing of this person nb : answer in one word like "red shirt " , expression of face in emoji nb : answer in one emoji like : "😒" ,"😊", surroundings of this person nb : answer in one sentence like : "your sitting in office" ,"you are sitting in home " , your answer should be exactly in this format-  face expression  should have a single word, emoji should have single emoji , and surrounding should be under 30 char 4 of them separated by coma   example - : happy , red shirt , 😊 , you are sitting in office `
             },
             
           ],
