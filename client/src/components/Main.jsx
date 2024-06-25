@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Main = () => {
-  const [showResult, setShowResult] = useState(true);
+  const [showResult, setShowResult] = useState(false);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState([]);
   const [image, setImage] = useState(null);
