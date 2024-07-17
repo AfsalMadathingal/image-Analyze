@@ -62,13 +62,15 @@ app.post('/scan', upload.single('image'), async (req, res) => {
       model: "claude-3-opus-20240229",
     });
 
-    console.log(message.content);
-    const result = await new Promise((resolve, reject) =>setTimeout(() => resolve("success"), 3000));
+
+
+    await new Promise((resolve, reject) =>setTimeout(() => resolve("success"), 3000));
 
     res.status(200).json({ success: true, message: "success" , result: message.content[0].text, limit: limit});
 
   } catch (error) {
-    res.status(500).json({ success: false, error: "server", errorMessage: error.message });
+    
+    res.status(500).json({ success: false, error: "server", errorMessage: error.message ,message :"Something went wrong check my other projects on afsalmadathingal.online" });
   }
 });
 

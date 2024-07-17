@@ -35,8 +35,12 @@ const Main = () => {
           const data = await result.json();
           console.log(data);
           if(data.success==false){
+            console.log('====================================');
+            console.log(data.message);
+            console.log('====================================');
             setLoading(false)
-            toast.error(data.message);
+  
+            toast(data.message);
             return
           }
           localStorage.setItem("limit", data.limit);
